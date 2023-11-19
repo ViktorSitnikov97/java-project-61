@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'hexlet.code'
@@ -16,4 +17,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+application {
+    mainClassName = 'hexlet.code.App'
+}
+jar {
+    manifest {
+        attributes "Main-Class": "hexlet.code.App"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
