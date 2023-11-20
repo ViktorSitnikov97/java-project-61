@@ -17,14 +17,16 @@ public class Even {
             String answer = Cli.scan.nextLine();
             String result = number % 2 == 0 ? yes : no;
             if (!answer.equals(result)) {
+                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.\n"
+                        + "Let's try again, Bill!");
                 break;
             }
             System.out.println("Correct!");
             count++;
         }
+        Cli.closeScanner();
         if (count == 3) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
-        Cli.closeScanner();
     }
 }
