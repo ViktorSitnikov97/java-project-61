@@ -33,3 +33,6 @@ jar {
 run {
     standardInput = System.in
 }
+compileJava {
+    options.release = 20
+}
