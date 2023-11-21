@@ -4,8 +4,8 @@
 ### Maintainability:
 [![Maintainability](https://api.codeclimate.com/v1/badges/cf9174d9663f61997a31/maintainability)](https://codeclimate.com/github/ViktorSitnikov97/java-project-61/maintainability)
 
-### Process recording:
-[Demonstration5step](https://asciinema.org/a/vf4kHuBfE060JsYrrpnDrugTg)
+### Demonstration:
+[Demonstration_5_step](https://asciinema.org/a/vf4kHuBfE060JsYrrpnDrugTg)
 
-[Demonstration6step](https://asciinema.org/a/s9alzVXnPrEwM3w71bL5LYhEK)
+[Demonstration_6_step](https://asciinema.org/a/s9alzVXnPrEwM3w71bL5LYhEK)
 
