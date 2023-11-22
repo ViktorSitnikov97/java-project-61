@@ -30,12 +30,10 @@ public class Progression {
         return  expression + "@" + answer;
     }
     public int[] getProgression() {
-        Random firstElemRand = new Random();
-        firstElement = firstElemRand.nextInt(20) + 1; // [1;20]
-        Random stepRand = new Random();
-        step = stepRand.nextInt(6) + 2; // [2;7]
-        Random lengthRand = new Random();
-        lengthProgression = lengthRand.nextInt(6) + 5; //[5;10]
+        Random random = new Random();
+        firstElement = random.nextInt(20) + 1; // [1;20]
+        step = random.nextInt(6) + 2; // [2;7]
+        lengthProgression = random.nextInt(6) + 5; //[5;10]
         int[] arrayProgression = new int[lengthProgression + 1];
         for (int i = 0; i < arrayProgression.length; i++) {
             arrayProgression[i] = firstElement + step * i;

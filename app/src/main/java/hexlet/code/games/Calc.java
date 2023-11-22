@@ -12,12 +12,10 @@ public class Calc {
     private int choiceNumber;
 
     public String outputFromCalculator() {
-        Random firstRand = new Random();
-        Random secondRand = new Random();
-        Random choiceRand = new Random();
-        firstValue = firstRand.nextInt(25);
-        secondValue = secondRand.nextInt(50);
-        choiceNumber = choiceRand.nextInt(3);
+        Random random = new Random();
+        firstValue = random.nextInt(25);
+        secondValue = random.nextInt(50);
+        choiceNumber = random.nextInt(3);
         switch (choiceNumber) {
             case 0:
                 operationSymbol = '+';

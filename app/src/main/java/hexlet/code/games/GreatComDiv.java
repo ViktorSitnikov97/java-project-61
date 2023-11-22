@@ -9,10 +9,9 @@ public class GreatComDiv {
     private int b;
     private int answer;
     public String outputFromGreatComDiv() {
-        Random firstRand = new Random();
-        Random secondRand = new Random();
-        a = firstRand.nextInt(101);
-        b = secondRand.nextInt(101);
+        Random random = new Random();
+        a = random.nextInt(101);
+        b = random.nextInt(101);
         int max = Math.max(a, b);
         int min = Math.min(a, b);
         answer = findingGCD(max, min);
