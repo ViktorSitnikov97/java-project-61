@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GreatComDiv;
 
 import java.util.Scanner;
 
@@ -11,11 +12,13 @@ public class Engine {
     private static String partsOutput;
     private static final Even EVEN = new Even();
     private static final Calc CALC = new Calc();
+    private static final GreatComDiv GCD = new GreatComDiv();
     public static void general() {
         System.out.print("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
                 + "2 - Even\n"
                 + "3 - Calc\n"
+                + "4 - GCD\n"
                 + "0 - Exit\n"
                 + "Your choice: ");
         Scanner scanner = new Scanner(System.in);
@@ -67,6 +70,8 @@ public class Engine {
             return EVEN.outputFromEven();
         } else if (choiceNumber == 3) {
             return CALC.outputFromCalculator();
+        } else if (choiceNumber == 4) {
+            return GCD.outputFromGreatComDiv();
         } else {
             return null;
         }
