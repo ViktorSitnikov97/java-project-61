@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Engine {
 
     private static int number;
+    private static String partsOutput;
     private static final Even EVEN = new Even();
     private static final Calc CALC = new Calc();
     public static void general() {
@@ -35,21 +36,22 @@ public class Engine {
             default:
                 break;
         }
-        while (count < 3) {
-            if (gameQuestion(number) == null) {
-                break;
+        if (combinedOutputFromGame(number) != null) {
+            while (count < 3) {
+                partsOutput = combinedOutputFromGame(number);
+                var parts = partsOutput.split("@");
+                System.out.println("Question: " + parts[0]);
+                System.out.print("Your answer: ");
+                answer = Cli.userAnswer.nextLine();
+                if (!answer.equals(parts[1])) {
+                    System.out.println("'" + answer + "'"
+                            + " is wrong answer ;(. Correct answer was " + "'" + parts[1] + "'.\n"
+                            + "Let's try again, " + Cli.getUserName() + "!");
+                    break;
+                }
+                System.out.println("Correct!");
+                count++;
             }
-            System.out.println("Question: " + gameQuestion(number));
-            System.out.print("Your answer: ");
-            answer = Cli.userAnswer.nextLine();
-            if (!answer.equals(gameAnswer(number))) {
-                System.out.println("'" + answer + "'"
-                        + " is wrong answer ;(. Correct answer was " + "'" + gameAnswer(number) + "'.\n"
-                        + "Let's try again, " + Cli.getUserName() + "!");
-                break;
-            }
-            System.out.println("Correct!");
-            count++;
         }
         if (count == 3) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
@@ -58,24 +60,13 @@ public class Engine {
         scanner.close();
     }
 
-    public static String gameQuestion(int choiceNumber) {
+    public static String combinedOutputFromGame(int choiceNumber) {
         if (choiceNumber == 1) {
             return null;
         } else if (choiceNumber == 2) {
-            return EVEN.questionEven();
+            return EVEN.outputFromEven();
         } else if (choiceNumber == 3) {
-            return CALC.questionCalculator();
-        } else {
-            return null;
-        }
-    }
-    public static String gameAnswer(int choiceNumber) {
-        if (choiceNumber == 1) {
-            return null;
-        } else if (choiceNumber == 2) {
-            return EVEN.answerEven();
-        } else if (choiceNumber == 3) {
-            return CALC.answerCalculator();
+            return CALC.outputFromCalculator();
         } else {
             return null;
         }
