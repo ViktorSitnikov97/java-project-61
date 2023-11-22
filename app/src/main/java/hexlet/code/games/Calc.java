@@ -6,10 +6,9 @@ public class Calc {
     private String expression;
     private final String ruleCalc = "What is the result of the expression?";
     private char operationSymbol;
-    private String result;
     private int firstValue;
     private int secondValue;
-    private int resultInt;
+    private int answer;
     private int choiceNumber;
 
     public String outputFromCalculator() {
@@ -35,18 +34,18 @@ public class Calc {
         expression = firstValue + " " + operationSymbol + " " + secondValue;
         switch (operationSymbol) {
             case '+':
-                resultInt =  firstValue + secondValue;
+                answer =  firstValue + secondValue;
                 break;
             case '-':
-                resultInt =  firstValue - secondValue;
+                answer =  firstValue - secondValue;
                 break;
             case '*':
-                resultInt =  firstValue * secondValue;
+                answer =  firstValue * secondValue;
                 break;
             default:
                 break;
         }
-        return expression + "@" + String.valueOf(resultInt);
+        return expression + "@" + String.valueOf(answer);
     }
     public String getRuleCalc() {
         return ruleCalc;

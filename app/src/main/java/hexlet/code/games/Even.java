@@ -8,13 +8,13 @@ public class Even {
     private final String yes = "yes";
     private final String no = "no";
     private int number;
-    private String result;
+    private String answer;
     private final String ruleEven = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public String outputFromEven() {
         Random rand = new Random();
         number = rand.nextInt(100);
-        result = number % 2 == 0 ? yes : no;
-        return String.valueOf(number) + "@" + result;
+        answer = number % 2 == 0 ? yes : no;
+        return String.valueOf(number) + "@" + answer;
     }
     public String getRuleEven() {
         return ruleEven;
