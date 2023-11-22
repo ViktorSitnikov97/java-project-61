@@ -12,14 +12,13 @@ public class Calc {
     private int resultInt;
     private int choiceNumber;
 
-    public String questionCalculator() {
+    public String outputFromCalculator() {
         Random firstRand = new Random();
         Random secondRand = new Random();
         Random choiceRand = new Random();
         firstValue = firstRand.nextInt(25);
         secondValue = secondRand.nextInt(50);
         choiceNumber = choiceRand.nextInt(3);
-
         switch (choiceNumber) {
             case 0:
                 operationSymbol = '+';
@@ -32,13 +31,8 @@ public class Calc {
                 break;
             default:
                 break;
-
         }
         expression = firstValue + " " + operationSymbol + " " + secondValue;
-        return expression;
-    }
-
-    public String answerCalculator() {
         switch (operationSymbol) {
             case '+':
                 resultInt =  firstValue + secondValue;
@@ -52,7 +46,7 @@ public class Calc {
             default:
                 break;
         }
-        return String.valueOf(resultInt);
+        return expression + "@" + String.valueOf(resultInt);
     }
     public String getRuleCalc() {
         return ruleCalc;

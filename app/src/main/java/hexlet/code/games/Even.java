@@ -10,14 +10,11 @@ public class Even {
     private int number;
     private String result;
     private final String ruleEven = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public String questionEven() {
+    public String outputFromEven() {
         Random rand = new Random();
         number = rand.nextInt(100);
-        return String.valueOf(number);
-    }
-    public String answerEven() {
         result = number % 2 == 0 ? yes : no;
-        return result;
+        return String.valueOf(number) + "@" + result;
     }
     public String getRuleEven() {
         return ruleEven;
