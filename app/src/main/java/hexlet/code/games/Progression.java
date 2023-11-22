@@ -32,7 +32,7 @@ public class Progression {
     public int[] getProgression() {
         Random random = new Random();
         firstElement = random.nextInt(20) + 1; // [1;20]
-        step = random.nextInt(6) + 2; // [2;7]
+        step = random.nextInt(4) + 3; // [3;6]
         lengthProgression = random.nextInt(6) + 5; //[5;10]
         int[] arrayProgression = new int[lengthProgression + 1];
         for (int i = 0; i < arrayProgression.length; i++) {
