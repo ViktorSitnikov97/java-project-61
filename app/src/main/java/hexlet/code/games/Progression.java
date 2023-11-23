@@ -5,7 +5,7 @@ import java.util.Random;
 public class Progression {
     private String expression;
     private String answer;
-    private final String ruleProgression = "What number is missing in the progression?";
+    private static final String RULEPROGRESSION = "What number is missing in the progression?";
     private int step;
     private int firstElement;
     private int lengthProgression;
@@ -46,7 +46,7 @@ public class Progression {
         int indexEmptyElement = lengthProgression / divider;
         return indexEmptyElement;
     }
-    public String getRuleProgression() {
-        return ruleProgression;
+    public static String getRuleProgression() {
+        return RULEPROGRESSION;
     }
 }

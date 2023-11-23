@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GreatComDiv {
     private String expression;
-    private final String ruleGCD = "Find the greatest common divisor of given numbers.";
+    private static final String RULEGCD = "Find the greatest common divisor of given numbers.";
     private int a;
     private int b;
     private int answer;
@@ -24,7 +24,7 @@ public class GreatComDiv {
         }
         return findingGCD(secondNumber, firstNumber % secondNumber);
     }
-    public String getRuleGCD() {
-        return ruleGCD;
+    public static String getRuleGCD() {
+        return RULEGCD;
     }
 }

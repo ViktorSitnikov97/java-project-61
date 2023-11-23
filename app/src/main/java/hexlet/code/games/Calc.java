@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Calc {
     private String expression;
-    private final String ruleCalc = "What is the result of the expression?";
+    private static final String RULECALC = "What is the result of the expression?";
     private char operationSymbol;
     private int firstValue;
     private int secondValue;
@@ -45,7 +45,7 @@ public class Calc {
         }
         return expression + "@" + String.valueOf(answer);
     }
-    public String getRuleCalc() {
-        return ruleCalc;
+    public static String getRuleCalc() {
+        return RULECALC;
     }
 }

@@ -11,10 +11,10 @@ public class Engine {
 
     private static int number;
     private static String partsOutput;
-    private static final Even EVEN = new Even();
-    private static final Calc CALC = new Calc();
-    private static final GreatComDiv GCD = new GreatComDiv();
-    private static final Progression PROG = new Progression();
+//    private static final Even EVEN = new Even();
+//    private static final Calc CALC = new Calc();
+//    private static final GreatComDiv GCD = new GreatComDiv();
+//    private static final Progression PROG = new Progression();
     public static void general() {
         System.out.print("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
@@ -34,16 +34,16 @@ public class Engine {
         int count = 0;
         switch (number) {
             case 2:
-                System.out.println(EVEN.getRuleEven());
+                System.out.println(Even.getRuleEven());
                 break;
             case 3:
-                System.out.println(CALC.getRuleCalc());
+                System.out.println(Calc.getRuleCalc());
                 break;
             case 4:
-                System.out.println(GCD.getRuleGCD());
+                System.out.println(GreatComDiv.getRuleGCD());
                 break;
             case 5:
-                System.out.println(PROG.getRuleProgression());
+                System.out.println(Progression.getRuleProgression());
                 break;
             default:
                 break;
@@ -76,13 +76,17 @@ public class Engine {
         if (choiceNumber == 1) {
             return null;
         } else if (choiceNumber == 2) {
-            return EVEN.outputFromEven();
+            Even even = new Even();
+            return even.outputFromEven();
         } else if (choiceNumber == 3) {
-            return CALC.outputFromCalculator();
+            Calc calc = new Calc();
+            return calc.outputFromCalculator();
         } else if (choiceNumber == 4) {
-            return GCD.outputFromGreatComDiv();
+            GreatComDiv gcd = new GreatComDiv();
+            return gcd.outputFromGreatComDiv();
         } else if (choiceNumber == 5) {
-            return PROG.outputFromProgression();
+            Progression prog = new Progression();
+            return prog.outputFromProgression();
         } else {
             return null;
         }

@@ -9,15 +9,15 @@ public class Even {
     private final String no = "no";
     private int number;
     private String answer;
-    private final String ruleEven = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final  String RULEEVEN = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public String outputFromEven() {
         Random rand = new Random();
         number = rand.nextInt(100);
         answer = number % 2 == 0 ? yes : no;
         return String.valueOf(number) + "@" + answer;
     }
-    public String getRuleEven() {
-        return ruleEven;
+    public static String getRuleEven() {
+        return RULEEVEN;
     }
 }
 
