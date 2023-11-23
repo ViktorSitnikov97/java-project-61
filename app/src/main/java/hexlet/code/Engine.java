@@ -1,9 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
 import hexlet.code.games.GreatComDiv;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -22,6 +23,7 @@ public class Engine {
                 + "3 - Calc\n"
                 + "4 - GCD\n"
                 + "5 - Progression\n"
+                + "6 - Prime\n"
                 + "0 - Exit\n"
                 + "Your choice: ");
         Scanner scanner = new Scanner(System.in);
@@ -44,6 +46,9 @@ public class Engine {
                 break;
             case 5:
                 System.out.println(Progression.getRuleProgression());
+                break;
+            case 6:
+                System.out.println(Prime.getRulePrime());
                 break;
             default:
                 break;
@@ -87,6 +92,9 @@ public class Engine {
         } else if (choiceNumber == 5) {
             Progression prog = new Progression();
             return prog.outputFromProgression();
+        } else if (choiceNumber == 6) {
+            Prime prime = new Prime();
+            return prime.outputFromPrime();
         } else {
             return null;
         }
