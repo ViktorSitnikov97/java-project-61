@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class GreatComDiv {
+public final class GreatComDiv {
     private String expression;
     private static final String RULEGCD = "Find the greatest common divisor of given numbers.";
     private int a;
@@ -10,8 +10,9 @@ public class GreatComDiv {
     private int answer;
     public String outputFromGreatComDiv() {
         Random random = new Random();
-        a = random.nextInt(101);
-        b = random.nextInt(101);
+        int upperBound = 101;
+        a = random.nextInt(upperBound);
+        b = random.nextInt(upperBound);
         int max = Math.max(a, b);
         int min = Math.min(a, b);
         answer = findingGCD(max, min);

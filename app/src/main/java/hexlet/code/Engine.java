@@ -8,10 +8,16 @@ import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
 
     private static int number;
     private static String partsOutput;
+    private static final int FIRST = 1;
+    private static final int SECOND = 2;
+    private static final int THIRD = 3;
+    private static final int FOURTH = 4;
+    private static final int FIFTH = 5;
+    private static final int SIXTH = 6;
 //    private static final Even EVEN = new Even();
 //    private static final Calc CALC = new Calc();
 //    private static final GreatComDiv GCD = new GreatComDiv();
@@ -34,27 +40,28 @@ public class Engine {
         Cli.greet();
         String answer;
         int count = 0;
+        int iterationCount = 3;
         switch (number) {
-            case 2:
+            case SECOND:
                 System.out.println(Even.getRuleEven());
                 break;
-            case 3:
+            case THIRD:
                 System.out.println(Calc.getRuleCalc());
                 break;
-            case 4:
+            case FOURTH:
                 System.out.println(GreatComDiv.getRuleGCD());
                 break;
-            case 5:
+            case FIFTH:
                 System.out.println(Progression.getRuleProgression());
                 break;
-            case 6:
+            case SIXTH:
                 System.out.println(Prime.getRulePrime());
                 break;
             default:
                 break;
         }
         if (combinedOutputFromGame(number) != null) {
-            while (count < 3) {
+            while (count < iterationCount) {
                 partsOutput = combinedOutputFromGame(number);
                 var parts = partsOutput.split("@");
                 System.out.println("Question: " + parts[0]);
@@ -78,21 +85,21 @@ public class Engine {
     }
 
     public static String combinedOutputFromGame(int choiceNumber) {
-        if (choiceNumber == 1) {
+        if (choiceNumber == FIRST) {
             return null;
-        } else if (choiceNumber == 2) {
+        } else if (choiceNumber == SECOND) {
             Even even = new Even();
             return even.outputFromEven();
-        } else if (choiceNumber == 3) {
+        } else if (choiceNumber == THIRD) {
             Calc calc = new Calc();
             return calc.outputFromCalculator();
-        } else if (choiceNumber == 4) {
+        } else if (choiceNumber == FOURTH) {
             GreatComDiv gcd = new GreatComDiv();
             return gcd.outputFromGreatComDiv();
-        } else if (choiceNumber == 5) {
+        } else if (choiceNumber == FIFTH) {
             Progression prog = new Progression();
             return prog.outputFromProgression();
-        } else if (choiceNumber == 6) {
+        } else if (choiceNumber == SIXTH) {
             Prime prime = new Prime();
             return prime.outputFromPrime();
         } else {

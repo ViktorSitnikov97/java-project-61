@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Calc {
+public final class Calc {
     private String expression;
     private static final String RULECALC = "What is the result of the expression?";
     private char operationSymbol;
@@ -13,9 +13,12 @@ public class Calc {
 
     public String outputFromCalculator() {
         Random random = new Random();
-        firstValue = random.nextInt(25);
-        secondValue = random.nextInt(50);
-        choiceNumber = random.nextInt(3);
+        int upperBoundFirstValue = 25;
+        firstValue = random.nextInt(upperBoundFirstValue);
+        int upperBoundSecondValue = 50;
+        secondValue = random.nextInt(upperBoundSecondValue);
+        int upperBoundChoiceNumber = 3;
+        choiceNumber = random.nextInt(upperBoundChoiceNumber);
         switch (choiceNumber) {
             case 0:
                 operationSymbol = '+';

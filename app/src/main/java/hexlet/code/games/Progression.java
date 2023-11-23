@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Progression {
+public final class Progression {
     private String expression;
     private String answer;
     private static final String RULEPROGRESSION = "What number is missing in the progression?";
@@ -31,9 +31,15 @@ public class Progression {
     }
     public int[] getProgression() {
         Random random = new Random();
-        firstElement = random.nextInt(20) + 1; // [1;20]
-        step = random.nextInt(4) + 3; // [3;6]
-        lengthProgression = random.nextInt(6) + 5; //[5;10]
+        int bottomBoundFirstElement = 1;
+        int upperBoundFirstElement = 20;
+        firstElement = random.nextInt(upperBoundFirstElement) + bottomBoundFirstElement; // [1;20]
+        int bottomBoundStep = 3;
+        int upperBoundStep = 4;
+        step = random.nextInt(upperBoundStep) + bottomBoundStep; // [3;6]
+        int bottomBoundLengthProgression = 5;
+        int upperBoundLengthProgression = 6;
+        lengthProgression = random.nextInt(upperBoundLengthProgression) + bottomBoundLengthProgression; //[5;10]
         int[] arrayProgression = new int[lengthProgression + 1];
         for (int i = 0; i < arrayProgression.length; i++) {
             arrayProgression[i] = firstElement + step * i;
@@ -42,7 +48,9 @@ public class Progression {
     }
     public int getIndexEmptyElement() {
         Random indexEmptyElemRand = new Random();
-        divider = indexEmptyElemRand.nextInt(5) + 1; //[1;5]
+        int bottomBoundDivider = 1;
+        int upperBoundDivider = 5;
+        divider = indexEmptyElemRand.nextInt(upperBoundDivider) + bottomBoundDivider; //[1;5]
         int indexEmptyElement = lengthProgression / divider;
         return indexEmptyElement;
     }
