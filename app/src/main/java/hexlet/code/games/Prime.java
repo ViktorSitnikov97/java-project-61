@@ -13,14 +13,15 @@ public final class Prime {
     private static final String RULEPRIME = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     private int number;
+    private final int upperBoundNumber = 99;
+    private final int buttonBoundNumber = 2;
     public String outputFromPrime() {
         expression = String.valueOf(getIsPrime());
         return expression + "@" + answer;
     }
     public int getIsPrime() {
         Random rand = new Random();
-        int upperBoundNumber = 99;
-        int buttonBoundNumber = 2;
+
         number = rand.nextInt(upperBoundNumber) + buttonBoundNumber; //[2;100]
         int[] arrayWithPrimeNumbers = getArrayPrime();
         answer = ArrayUtils.contains(arrayWithPrimeNumbers, number) ? yes : no;
