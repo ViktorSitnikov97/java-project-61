@@ -28,7 +28,7 @@ public final class Prime {
         return number;
     }
     public int[] getArrayPrime() {
-        int lengthArray = 100;
+        final int lengthArray = 100;
         int[] array = new int[lengthArray];
         int count = 0;
         for (int i = 2; i < array.length; i++) {
