@@ -39,7 +39,7 @@ public class App {
                 GreatComDiv.startGameGreatComDiv();
                 break;
             case FIFTH:
-                System.out.println(Progression.getRuleProgression());
+                Progression.startGameProgression();
                 break;
             case SIXTH:
                 System.out.println(Prime.getRulePrime());

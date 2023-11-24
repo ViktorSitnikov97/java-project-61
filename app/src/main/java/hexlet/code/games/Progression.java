@@ -1,48 +1,58 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 public final class Progression {
-    private String expression;
-    private String answer;
+    private static String expression;
+    private static String answer;
     private static final String RULEPROGRESSION = "What number is missing in the progression?";
-    private int step;
-    private final int bottomBoundStep = 3;
-    private final int upperBoundStep = 4;
-    private int firstElement;
-    private final int bottomBoundFirstElement = 1;
-    private final int upperBoundFirstElement = 20;
-    private int lengthProgression;
-    private final int bottomBoundLengthProgression = 5;
-    private final int upperBoundLengthProgression = 6;
-    private int divider;
-    private final int bottomBoundDivider = 1;
-    private final int upperBoundDivider = 5;
-    private int emptyElement;
+    private static int lengthProgression;
+    private static int emptyElement;
 
-    public String outputFromProgression() {
-        StringBuilder stringProgression = new StringBuilder();
-        int[] array = getProgression();
-        int indexEmptyElement = getIndexEmptyElement();
-        for (int i = 0; i < array.length; i++) {
-            if (i != indexEmptyElement) {
-                stringProgression.append(array[i]);
-                stringProgression.append(" ");
-            } else {
-                stringProgression.append(".. ");
+    public static void startGameProgression() {
+        Engine.setGameRule(RULEPROGRESSION);
+        int count = 0;
+        final int iterationCount = 3;
+        final int iterationMainSeparator = 2;
+        StringBuilder questionsWithAnswers = new StringBuilder();
+        while (count < iterationCount) {
+            StringBuilder stringProgression = new StringBuilder();
+            int[] array = getProgression();
+            int indexEmptyElement = getIndexEmptyElement();
+            for (int i = 0; i < array.length; i++) {
+                if (i != indexEmptyElement) {
+                    stringProgression.append(array[i]);
+                    stringProgression.append(" ");
+                } else {
+                    stringProgression.append(".. ");
+                }
             }
+            expression = stringProgression.toString();
+            emptyElement = array[indexEmptyElement];
+            answer = String.valueOf(emptyElement);
+            questionsWithAnswers.append(expression);
+            questionsWithAnswers.append("@");
+            questionsWithAnswers.append(answer);
+            if (count < iterationMainSeparator) {
+                questionsWithAnswers.append("!");
+            }
+            count++;
         }
-        expression = stringProgression.toString();
-        emptyElement = array[indexEmptyElement];
-        answer = String.valueOf(emptyElement);
-        return  expression + "@" + answer;
+        Engine.general(questionsWithAnswers.toString());
     }
-    public int[] getProgression() {
+
+    public static int[] getProgression() {
         Random random = new Random();
-        firstElement = random.nextInt(upperBoundFirstElement) + bottomBoundFirstElement; // [1;20]
-
-        step = random.nextInt(upperBoundStep) + bottomBoundStep; // [3;6]
-
+        final int bottomBoundStep = 3;
+        final int upperBoundStep = 4;
+        final int bottomBoundFirstElement = 1;
+        final int upperBoundFirstElement = 20;
+        final int bottomBoundLengthProgression = 5;
+        final int upperBoundLengthProgression = 6;
+        int firstElement = random.nextInt(upperBoundFirstElement) + bottomBoundFirstElement; // [1;20]
+        int step = random.nextInt(upperBoundStep) + bottomBoundStep; // [3;6]
         lengthProgression = random.nextInt(upperBoundLengthProgression) + bottomBoundLengthProgression; //[5;10]
         int[] arrayProgression = new int[lengthProgression + 1];
         for (int i = 0; i < arrayProgression.length; i++) {
@@ -50,14 +60,13 @@ public final class Progression {
         }
         return arrayProgression;
     }
-    public int getIndexEmptyElement() {
+    public static int getIndexEmptyElement() {
         Random indexEmptyElemRand = new Random();
-
+        int divider;
+        int bottomBoundDivider = 1;
+        int upperBoundDivider = 5;
         divider = indexEmptyElemRand.nextInt(upperBoundDivider) + bottomBoundDivider; //[1;5]
         int indexEmptyElement = lengthProgression / divider;
         return indexEmptyElement;
-    }
-    public static String getRuleProgression() {
-        return RULEPROGRESSION;
     }
 }
