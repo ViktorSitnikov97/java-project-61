@@ -78,7 +78,7 @@ public final class Engine {
                 count++;
             }
         }
-        if (count == 3) {
+        if (count == iterationCount) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
         inputName.userAnswer.close();
