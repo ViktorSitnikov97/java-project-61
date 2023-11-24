@@ -5,59 +5,42 @@ import java.util.Scanner;
 
 public final class Engine {
     private static String userName;
-    private static String gameQuestion;
-    private static String gameAnswer;
+    private static final int indexQuestion = 0;
+    private static final int indexAnswer = 1;
     private static String gameRule;
-    private static boolean wasGreeting = false;
-    private static boolean isContinue;
-    private static final Scanner answer = new Scanner(System.in);
 
-    public static void general() {
 
-        if (!wasGreeting) {
-            System.out.print("\n" + "Welcome to the Brain Games!\n" + "May I have your name? ");
-            userName = answer.nextLine();
-            System.out.println("Hello, " + userName + "!");
-            System.out.println(gameRule);
-            wasGreeting = true;
-        }
-            System.out.println("Question: " + gameQuestion);
+    public static void general(String result) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\n" + "Welcome to the Brain Games!\n" + "May I have your name? ");
+        userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(gameRule);
+        int count = 0;
+        final int iterationCount = 3;
+        String[] arrayQuestionsWithAnswers = result.split("!"); // [question@answer],[question@answer]
+        while (count < iterationCount){
+            var arrayGameQuestionAnswer = arrayQuestionsWithAnswers[count].split("@"); // [question],[answer]
+            System.out.println("Question: " + arrayGameQuestionAnswer[indexQuestion]);
             System.out.print("Your answer: ");
             String userAnswer;
-            userAnswer = answer.nextLine();
-            if (!gameAnswer.equals(userAnswer)) {
+            userAnswer = scanner.nextLine();
+            if (!arrayGameQuestionAnswer[indexAnswer].equals(userAnswer)) {
                 System.out.println("'" + userAnswer + "'"
-                        + " is wrong answer ;(. Correct answer was " + "'" + gameAnswer + "'.\n"
+                        + " is wrong answer ;(. Correct answer was " + "'" + arrayGameQuestionAnswer[indexAnswer] + "'.\n"
                         + "Let's try again, " + userName + "!");
-                isContinue = false;
+                break;
             }
             System.out.println("Correct!");
-            isContinue = true;
-
-    }
-    public static void setUserName(String userNameCurrent) {
-        userName = userNameCurrent;
-    }
-    public static boolean getExodus() {
-        return isContinue;
-    }
-    public static void setGameAnswer(String gameAnswerCurrent) {
-        gameAnswer = gameAnswerCurrent;
-    }
-    public static void setGameQuestion(String gameQuestionCurrent) {
-        gameQuestion = gameQuestionCurrent;
+            count++;
+        }
+        if (count == iterationCount) {
+            System.out.println("Congratulations, " + userName + "!");
+        }
     }
     public static void setGameRule(String gameRuleCurrent) {
          gameRule = gameRuleCurrent;
     }
-    public static void congratulate() {
-        System.out.println("Congratulations, " + userName + "!");
-    }
-    public static void closeScanner() {
-        answer.close();
-    }
-
-
 }
 
 
