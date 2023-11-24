@@ -9,8 +9,8 @@ import java.util.Random;
 public final class Prime {
     private static String expression;
     private static String answer;
-    private static final String yes = "yes";
-    private static final String no = "no";
+    private static final String YES = "yes";
+    private static final String NO = "no";
     private static final String RULEPRIME = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void startGamePrime() {
@@ -39,7 +39,7 @@ public final class Prime {
         int number;
         number = rand.nextInt(upperBoundNumber) + buttonBoundNumber; //[2;100]
         int[] arrayWithPrimeNumbers = getArrayPrime();
-        answer = ArrayUtils.contains(arrayWithPrimeNumbers, number) ? yes : no;
+        answer = ArrayUtils.contains(arrayWithPrimeNumbers, number) ? YES : NO;
         return number;
     }
 

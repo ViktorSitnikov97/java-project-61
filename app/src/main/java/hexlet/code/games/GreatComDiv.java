@@ -19,15 +19,15 @@ public final class GreatComDiv {
         String expression;
         int answer;
         while (count < iterationCount) {
-        a = random.nextInt(upperBound); //[0;100]
-        b = random.nextInt(upperBound); //[0;100]
-        int max = Math.max(a, b);
-        int min = Math.min(a, b);
-        answer = findingGCD(max, min);
-        expression = String.valueOf(a) + " " + String.valueOf(b);
-        questionsWithAnswers.append(expression);
-        questionsWithAnswers.append("@");
-        questionsWithAnswers.append(answer);
+            a = random.nextInt(upperBound); //[0;100]
+            b = random.nextInt(upperBound); //[0;100]
+            int max = Math.max(a, b);
+            int min = Math.min(a, b);
+            answer = findingGCD(max, min);
+            expression = String.valueOf(a) + " " + String.valueOf(b);
+            questionsWithAnswers.append(expression);
+            questionsWithAnswers.append("@");
+            questionsWithAnswers.append(answer);
             if (count < iterationMainSeparator) {
                 questionsWithAnswers.append("!");
             }

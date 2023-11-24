@@ -1,11 +1,10 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public final class Engine {
-    private static final int indexQuestion = 0;
-    private static final int indexAnswer = 1;
+    private static final int INDEXQUESTION = 0;
+    private static final int INDEXANSWER = 1;
     private static String gameRule;
 
 
@@ -19,15 +18,16 @@ public final class Engine {
         int count = 0;
         final int iterationCount = 3;
         String[] arrayQuestionsWithAnswers = result.split("!"); // [question@answer],[question@answer]
-        while (count < iterationCount){
+        while (count < iterationCount) {
             var arrayGameQuestionAnswer = arrayQuestionsWithAnswers[count].split("@"); // [question],[answer]
-            System.out.println("Question: " + arrayGameQuestionAnswer[indexQuestion]);
+            System.out.println("Question: " + arrayGameQuestionAnswer[INDEXQUESTION]);
             System.out.print("Your answer: ");
             String userAnswer;
             userAnswer = scanner.nextLine();
-            if (!arrayGameQuestionAnswer[indexAnswer].equals(userAnswer)) {
+            if (!arrayGameQuestionAnswer[INDEXANSWER].equals(userAnswer)) {
                 System.out.println("'" + userAnswer + "'"
-                        + " is wrong answer ;(. Correct answer was " + "'" + arrayGameQuestionAnswer[indexAnswer] + "'.\n"
+                        + " is wrong answer ;(. Correct answer was " + "'"
+                        + arrayGameQuestionAnswer[INDEXANSWER] + "'.\n"
                         + "Let's try again, " + userName + "!");
                 break;
             }
@@ -40,7 +40,7 @@ public final class Engine {
         scanner.close();
     }
     public static void setGameRule(String gameRuleCurrent) {
-         gameRule = gameRuleCurrent;
+        gameRule = gameRuleCurrent;
     }
 }
 
