@@ -37,7 +37,8 @@ public final class Engine {
         if (number == 0) {
             return;
         }
-        Cli.greet();
+        Cli inputName = new Cli();
+        inputName.greet();
         switch (number) {
             case SECOND:
                 System.out.println(Even.getRuleEven());
@@ -66,7 +67,7 @@ public final class Engine {
                 var parts = partsOutput.split("@");
                 System.out.println("Question: " + parts[0]);
                 System.out.print("Your answer: ");
-                answer = Cli.userAnswer.nextLine();
+                answer = inputName.userAnswer.nextLine();
                 if (!answer.equals(parts[1])) {
                     System.out.println("'" + answer + "'"
                             + " is wrong answer ;(. Correct answer was " + "'" + parts[1] + "'.\n"
@@ -80,7 +81,7 @@ public final class Engine {
         if (count == 3) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
-        Cli.closeScanner();
+        inputName.userAnswer.close();
         scanner.close();
     }
 
