@@ -67,7 +67,7 @@ public final class Engine {
                 var parts = partsOutput.split("@");
                 System.out.println("Question: " + parts[0]);
                 System.out.print("Your answer: ");
-                answer = inputName.userAnswer.nextLine();
+                answer = inputName.useScanner().nextLine();
                 if (!answer.equals(parts[1])) {
                     System.out.println("'" + answer + "'"
                             + " is wrong answer ;(. Correct answer was " + "'" + parts[1] + "'.\n"
@@ -81,7 +81,7 @@ public final class Engine {
         if (count == iterationCount) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
-        inputName.userAnswer.close();
+        inputName.useScanner().close();
         scanner.close();
     }
 
