@@ -12,8 +12,8 @@ public final class Even {
     private static final  String RULEEVEN = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public String outputFromEven() {
         Random rand = new Random();
-        int upperBound = 100;
-        number = rand.nextInt(upperBound);
+        final int upperBound = 100;
+        number = rand.nextInt(upperBound); //[0;99]
         answer = number % 2 == 0 ? yes : no;
         return String.valueOf(number) + "@" + answer;
     }
