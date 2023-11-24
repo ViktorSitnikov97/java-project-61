@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public final class Engine {
-    private static String userName;
     private static final int indexQuestion = 0;
     private static final int indexAnswer = 1;
     private static String gameRule;
@@ -13,6 +12,7 @@ public final class Engine {
     public static void general(String result) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\n" + "Welcome to the Brain Games!\n" + "May I have your name? ");
+        String userName;
         userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
         System.out.println(gameRule);
@@ -37,6 +37,7 @@ public final class Engine {
         if (count == iterationCount) {
             System.out.println("Congratulations, " + userName + "!");
         }
+        scanner.close();
     }
     public static void setGameRule(String gameRuleCurrent) {
          gameRule = gameRuleCurrent;
