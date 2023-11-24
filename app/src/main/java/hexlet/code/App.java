@@ -33,7 +33,7 @@ public class App {
                 Even.startGameEven();
                 break;
             case THIRD:
-//                startGameCalc();
+                Calc.startGameCalc();
                 break;
             case FOURTH:
                 System.out.println(GreatComDiv.getRuleGCD());
