@@ -63,8 +63,8 @@ public final class Progression {
     public static int getIndexEmptyElement() {
         Random indexEmptyElemRand = new Random();
         int divider;
-        int bottomBoundDivider = 1;
-        int upperBoundDivider = 5;
+        final int bottomBoundDivider = 1;
+        final int upperBoundDivider = 5;
         divider = indexEmptyElemRand.nextInt(upperBoundDivider) + bottomBoundDivider; //[1;5]
         int indexEmptyElement = lengthProgression / divider;
         return indexEmptyElement;
