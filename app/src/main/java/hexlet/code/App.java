@@ -36,7 +36,7 @@ public class App {
                 Calc.startGameCalc();
                 break;
             case FOURTH:
-                System.out.println(GreatComDiv.getRuleGCD());
+                GreatComDiv.startGameGreatComDiv();
                 break;
             case FIFTH:
                 System.out.println(Progression.getRuleProgression());
