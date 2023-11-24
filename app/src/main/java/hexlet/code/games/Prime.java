@@ -1,33 +1,49 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public final class Prime {
-    private String expression;
-    private String answer;
-    private final String yes = "yes";
-    private final String no = "no";
+    private static String expression;
+    private static String answer;
+    private static final String yes = "yes";
+    private static final String no = "no";
     private static final String RULEPRIME = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    private int number;
-    private final int upperBoundNumber = 99;
-    private final int buttonBoundNumber = 2;
-    public String outputFromPrime() {
-        expression = String.valueOf(getIsPrime());
-        return expression + "@" + answer;
+    public static void startGamePrime() {
+        Engine.setGameRule(RULEPRIME);
+        int count = 0;
+        final int iterationCount = 3;
+        final int iterationMainSeparator = 2;
+        StringBuilder questionsWithAnswers = new StringBuilder();
+        while (count < iterationCount) {
+            expression = String.valueOf(getIsPrime());
+            questionsWithAnswers.append(expression);
+            questionsWithAnswers.append("@");
+            questionsWithAnswers.append(answer);
+            if (count < iterationMainSeparator) {
+                questionsWithAnswers.append("!");
+            }
+            count++;
+        }
+        Engine.general(questionsWithAnswers.toString());
     }
-    public int getIsPrime() {
-        Random rand = new Random();
 
+    public static int getIsPrime() {
+        Random rand = new Random();
+        final int upperBoundNumber = 99;
+        final int buttonBoundNumber = 2;
+        int number;
         number = rand.nextInt(upperBoundNumber) + buttonBoundNumber; //[2;100]
         int[] arrayWithPrimeNumbers = getArrayPrime();
         answer = ArrayUtils.contains(arrayWithPrimeNumbers, number) ? yes : no;
         return number;
     }
-    public int[] getArrayPrime() {
+
+    public static int[] getArrayPrime() {
         final int lengthArray = 100;
         int[] array = new int[lengthArray];
         int count = 0;
@@ -46,8 +62,5 @@ public final class Prime {
         }
         return Arrays.copyOfRange(array, 0, count);
     }
-
-    public static String getRulePrime() {
-        return RULEPRIME;
-    }
 }
+

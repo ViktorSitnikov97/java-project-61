@@ -42,7 +42,7 @@ public class App {
                 Progression.startGameProgression();
                 break;
             case SIXTH:
-                System.out.println(Prime.getRulePrime());
+                Prime.startGamePrime();
                 break;
             default:
                 System.out.println("GoodBye!");
