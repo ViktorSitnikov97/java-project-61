@@ -13,20 +13,23 @@ public final class Calc {
 
     public String outputFromCalculator() {
         Random random = new Random();
-        int upperBoundFirstValue = 25;
+        final int  upperBoundFirstValue = 25;
         firstValue = random.nextInt(upperBoundFirstValue);
-        int upperBoundSecondValue = 50;
+        final int upperBoundSecondValue = 50;
         secondValue = random.nextInt(upperBoundSecondValue);
-        int upperBoundChoiceNumber = 3;
+        final int upperBoundChoiceNumber = 3;
         choiceNumber = random.nextInt(upperBoundChoiceNumber);
+        final int zeroNumber = 0;
+        final int firstNumber = 1;
+        final int secondNumber = 2;
         switch (choiceNumber) {
-            case 0:
+            case zeroNumber:
                 operationSymbol = '+';
                 break;
-            case 1:
+            case firstNumber:
                 operationSymbol = '-';
                 break;
-            case 2:
+            case secondNumber:
                 operationSymbol = '*';
                 break;
             default:
