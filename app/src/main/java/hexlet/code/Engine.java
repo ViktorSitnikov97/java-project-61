@@ -38,9 +38,6 @@ public final class Engine {
             return;
         }
         Cli.greet();
-        String answer;
-        int count = 0;
-        int iterationCount = 3;
         switch (number) {
             case SECOND:
                 System.out.println(Even.getRuleEven());
@@ -60,6 +57,9 @@ public final class Engine {
             default:
                 break;
         }
+        String answer;
+        int count = 0;
+        final int iterationCount = 3;
         if (combinedOutputFromGame(number) != null) {
             while (count < iterationCount) {
                 partsOutput = combinedOutputFromGame(number);
