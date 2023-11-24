@@ -15,27 +15,24 @@ public final class Even {
 
     public static void startGameEven() {
         Engine.setGameRule(RULEEVEN);
-        boolean isContinue = true;
         int count = 0;
         final int iterationCount = 3;
+        final int iterationMainSeparator = 2;
+        StringBuilder questionsWithAnswers = new StringBuilder();
         while (count < iterationCount) {
             Random rand = new Random();
             final int upperBound = 100;
             number = rand.nextInt(upperBound); //[0;99]
             answer = number % 2 == 0 ? yes : no;
-            Engine.setGameQuestion(String.valueOf(number));
-            Engine.setGameAnswer(answer);
-            Engine.general();
-            isContinue = Engine.getExodus();
-            if (!isContinue) {
-                break;
+            questionsWithAnswers.append(number);
+            questionsWithAnswers.append("@");
+            questionsWithAnswers.append(answer);
+            if (count < iterationMainSeparator) {
+                questionsWithAnswers.append("!");
             }
             count++;
         }
-        Engine.closeScanner();
-        if (count == iterationCount) {
-            Engine.congratulate();
-        }
+        Engine.general(questionsWithAnswers.toString());
     }
 }
 
