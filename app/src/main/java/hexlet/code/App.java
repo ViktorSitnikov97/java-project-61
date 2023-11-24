@@ -24,12 +24,13 @@ public class App {
                 + "Your choice: ");
         Scanner scanner = new Scanner(System.in);
         selectedGame = scanner.nextInt();
+
         switch (selectedGame) {
             case FIRST:
                 Cli.greet();
                 break;
             case SECOND:
-//                startGameEven();
+                Even.startGameEven();
                 break;
             case THIRD:
 //                startGameCalc();
@@ -48,6 +49,7 @@ public class App {
                 break;
         }
         scanner.close();
+
     }
 
 }
