@@ -9,13 +9,6 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
-    private static int selectedGame;
-    private static final int FIRST = 1;
-    private static final int SECOND = 2;
-    private static final int THIRD = 3;
-    private static final int FOURTH = 4;
-    private static final int FIFTH = 5;
-    private static final int SIXTH = 6;
     public static void main(String[] args) {
         System.out.print("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
@@ -27,29 +20,32 @@ public class App {
                 + "0 - Exit\n"
                 + "Your choice: ");
         Scanner scanner = new Scanner(System.in);
-        selectedGame = scanner.nextInt();
+        String selectedGame = scanner.next();
 
         switch (selectedGame) {
-            case FIRST:
+            case "1":
                 Cli.greet();
                 break;
-            case SECOND:
+            case "2":
                 Even.startGameEven();
                 break;
-            case THIRD:
+            case "3":
                 Calc.startGameCalc();
                 break;
-            case FOURTH:
+            case "4":
                 GreatComDiv.startGameGreatComDiv();
                 break;
-            case FIFTH:
+            case "5":
                 Progression.startGameProgression();
                 break;
-            case SIXTH:
+            case "6":
                 Prime.startGamePrime();
                 break;
+            case "0":
+                System.out.println("Goodbye!");
+                break;
             default:
-                System.out.println("GoodBye!");
+                System.out.println("Invalid number entered. Restart the game.");
                 break;
         }
         scanner.close();
