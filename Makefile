@@ -1,11 +1,22 @@
-run-dist:#запуск исполняемого файла
-	app/build/install/app/bin/app
+clean:
+    ./app/gradlew clean
 
+build:
+    ./app/gradlew clean build
 
+run:
+    ./app/gradlew run
 
+lint:
+    ./app/gradlew checkstyleMain
 
+install: clean
+    ./app/gradlew install
 
+run-dist:
+    ./app/build/install/app/bin/app
 
+check-updates:
+    ./app/gradlew dependencyUpdates
 
-#список директорий и файлов, экранируемых от команды make
-.PHONY:
+.PHONY: build
