@@ -1,22 +1,23 @@
 clean:
-    ./app/gradlew clean
+	./app/gradlew clean
 
 build:
-    ./app/gradlew clean build
+	./app/gradlew clean build
 
-run:
-    ./app/gradlew run
-
-lint:
-    ./app/gradlew checkstyleMain
-
-install: clean
-    ./app/gradlew install
+install:
+	./app/gradlew clean install
 
 run-dist:
-    ./app/build/install/app/bin/app
+	./app/build/install/app/bin/app
+
+run:
+	./app/gradlew run
+
+lint:
+	./app/gradlew checkstyleMain
 
 check-updates:
-    ./app/gradlew dependencyUpdates
+	./app/gradlew dependencyUpdates
+
 
 .PHONY: build
