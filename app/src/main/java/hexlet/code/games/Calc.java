@@ -1,71 +1,73 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import static hexlet.code.Utils.generateNumber;
 
 public final class Calc {
-    private static String expression;
-    private static final String RULECALC = "What is the result of the expression?";
-    private static char operationSymbol;
-    private static int firstValue;
-    private static int secondValue;
-    private static int answer;
-    private static int choiceNumber;
-
     public static void startGameCalc() {
-        Engine.setGameRule(RULECALC);
-        Random random = new Random();
-        final int upperBoundFirstValue = 25;
-        final int upperBoundSecondValue = 50;
-        final int upperBoundChoiceNumber = 3;
-        final int zeroNumber = 0;
-        final int firstNumber = 1;
-        final int secondNumber = 2;
-        final int iterationCount = 3;
-        final int iterationMainSeparator = 2;
-        int count = 0;
-        StringBuilder questionsWithAnswers = new StringBuilder();
-        while (count < iterationCount) {
-            firstValue = random.nextInt(upperBoundFirstValue);
-            secondValue = random.nextInt(upperBoundSecondValue);
-            choiceNumber = random.nextInt(upperBoundChoiceNumber);
-            switch (choiceNumber) {
-                case zeroNumber:
-                    operationSymbol = '+';
-                    break;
-                case firstNumber:
-                    operationSymbol = '-';
-                    break;
-                case secondNumber:
-                    operationSymbol = '*';
-                    break;
-                default:
-                    break;
-            }
-            expression = firstValue + " " + operationSymbol + " " + secondValue;
-            questionsWithAnswers.append(expression);
-            questionsWithAnswers.append("@");
-            switch (operationSymbol) {
-                case '+':
-                    answer = firstValue + secondValue;
-                    break;
-                case '-':
-                    answer = firstValue - secondValue;
-                    break;
-                case '*':
-                    answer = firstValue * secondValue;
-                    break;
-                default:
-                    break;
-            }
-            questionsWithAnswers.append(answer);
-            if (count < iterationMainSeparator) {
-                questionsWithAnswers.append("!");
-            }
-            count++;
+        final String rule = "What is the result of the expression?";
+        final int roundsCount = 3;
+        final int amountData = 2;
+        String[][] roundsData = new String[roundsCount][amountData];
+        for (int i = 0; i < roundsCount; i++) {
+            roundsData[i] = generateRoundData();
         }
-        Engine.general(questionsWithAnswers.toString());
+        Engine.general(roundsData, rule);
+    }
+
+    public static String[] generateRoundData() {
+        final int upperBoundValue = 100;
+        final int bottomBoundValue = 20;
+        final int upperBoundChoiceNumber = 2;
+        final int bottomBoundChoiceNumber = 0;
+        int firstValue = generateNumber(bottomBoundValue, upperBoundValue);
+        int secondValue = generateNumber(bottomBoundValue, upperBoundValue);
+        int choiceNumber = generateNumber(bottomBoundChoiceNumber, upperBoundChoiceNumber);
+        String choiceOperation = String.valueOf(choiceNumber);
+        char operator;
+        switch (choiceOperation) {
+            case "0":
+                operator = '+';
+                break;
+            case "1":
+                operator = '-';
+                break;
+            case "2":
+                operator = '*';
+                break;
+            default:
+                throw new RuntimeException("Operation selection error " + choiceOperation);
+        }
+        final int lengthData = 2;
+        final int firstElement = 0;
+        final int secondElement = 1;
+        String[] data = new String[lengthData];
+        String expression = firstValue + " " + operator + " " + secondValue;
+        data[firstElement] = expression;
+        int answer = calculate(operator, firstValue, secondValue);
+        data[secondElement] = String.valueOf(answer);
+        return data;
+    }
+
+    private static int calculate(char operator, int number1, int number2) {
+        int result;
+        switch (operator) {
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            default:
+                throw new RuntimeException("Unknown operator: " + operator);
+        }
+        return result;
     }
 }
+
+
+
 
