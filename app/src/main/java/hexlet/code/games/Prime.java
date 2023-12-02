@@ -1,49 +1,40 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 import org.apache.commons.lang3.ArrayUtils;
-
 import java.util.Arrays;
-import java.util.Random;
 
 public final class Prime {
-    private static String expression;
-    private static String answer;
-    private static final String YES = "yes";
-    private static final String NO = "no";
-    private static final String RULEPRIME = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-
     public static void startGamePrime() {
-        Engine.setGameRule(RULEPRIME);
-        int count = 0;
-        final int iterationCount = 3;
-        final int iterationMainSeparator = 2;
-        StringBuilder questionsWithAnswers = new StringBuilder();
-        while (count < iterationCount) {
-            expression = String.valueOf(getIsPrime());
-            questionsWithAnswers.append(expression);
-            questionsWithAnswers.append("@");
-            questionsWithAnswers.append(answer);
-            if (count < iterationMainSeparator) {
-                questionsWithAnswers.append("!");
-            }
-            count++;
-        }
-        Engine.general(questionsWithAnswers.toString());
-    }
-
-    public static int getIsPrime() {
-        Random rand = new Random();
-        final int upperBoundNumber = 99;
-        final int buttonBoundNumber = 2;
-        int number;
-        number = rand.nextInt(upperBoundNumber) + buttonBoundNumber; //[2;100]
+        final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         int[] arrayWithPrimeNumbers = getArrayPrime();
-        answer = ArrayUtils.contains(arrayWithPrimeNumbers, number) ? YES : NO;
-        return number;
+        final int roundsCount = 3;
+        final int amountData = 2;
+        String[][] roundsData = new String[roundsCount][amountData];
+        for (int i = 0; i < roundsCount; i++) {
+            roundsData[i] = generateRoundData(arrayWithPrimeNumbers);
+        }
+        Engine.general(roundsData, rule);
     }
-
-    public static int[] getArrayPrime() {
+    private static String[] generateRoundData(int[] arrayPrime) {
+        final int bottomBound = 2;
+        final int upperBound = 100;
+        final int lengthData = 2;
+        final int firstElement = 0;
+        final int secondElement = 1;
+        String[] data = new String[lengthData];
+        int number = Utils.generateNumber(bottomBound,upperBound);
+        String question = String.valueOf(number);
+        data[firstElement] = question;
+        String answer = isPrime(number, arrayPrime) ? "yes" : "no";
+        data[secondElement] = answer;
+        return data;
+    }
+    private static boolean isPrime(int number, int[] array) {
+        return ArrayUtils.contains(array, number);
+    }
+    private static int[] getArrayPrime() {
         final int lengthArray = 100;
         int[] array = new int[lengthArray];
         int count = 0;
