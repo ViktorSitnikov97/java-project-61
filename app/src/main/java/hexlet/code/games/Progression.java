@@ -1,72 +1,54 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import static hexlet.code.Utils.generateNumber;
 
 public final class Progression {
-    private static String expression;
-    private static String answer;
-    private static final String RULEPROGRESSION = "What number is missing in the progression?";
-    private static int lengthProgression;
-    private static int emptyElement;
 
     public static void startGameProgression() {
-        Engine.setGameRule(RULEPROGRESSION);
-        int count = 0;
-        final int iterationCount = 3;
-        final int iterationMainSeparator = 2;
-        StringBuilder questionsWithAnswers = new StringBuilder();
-        while (count < iterationCount) {
-            StringBuilder stringProgression = new StringBuilder();
-            int[] array = getProgression();
-            int indexEmptyElement = getIndexEmptyElement();
-            for (int i = 0; i < array.length; i++) {
-                if (i != indexEmptyElement) {
-                    stringProgression.append(array[i]);
-                    stringProgression.append(" ");
-                } else {
-                    stringProgression.append(".. ");
-                }
-            }
-            expression = stringProgression.toString();
-            emptyElement = array[indexEmptyElement];
-            answer = String.valueOf(emptyElement);
-            questionsWithAnswers.append(expression);
-            questionsWithAnswers.append("@");
-            questionsWithAnswers.append(answer);
-            if (count < iterationMainSeparator) {
-                questionsWithAnswers.append("!");
-            }
-            count++;
+        final String rule = "What number is missing in the progression?";
+        final int roundsCount = 3;
+        final int amountData = 2;
+        String[][] roundsData = new String[roundsCount][amountData];
+        for (int i = 0; i < roundsCount; i++) {
+            roundsData[i] = generateRoundData();
         }
-        Engine.general(questionsWithAnswers.toString());
+        Engine.general(roundsData, rule);
     }
-
-    public static int[] getProgression() {
-        Random random = new Random();
-        final int bottomBoundStep = 3;
-        final int upperBoundStep = 4;
+    private static String[] generateRoundData() {
         final int bottomBoundFirstElement = 1;
         final int upperBoundFirstElement = 20;
-        final int bottomBoundLengthProgression = 5;
-        final int upperBoundLengthProgression = 6;
-        int firstElement = random.nextInt(upperBoundFirstElement) + bottomBoundFirstElement; // [1;20]
-        int step = random.nextInt(upperBoundStep) + bottomBoundStep; // [3;6]
-        lengthProgression = random.nextInt(upperBoundLengthProgression) + bottomBoundLengthProgression; //[5;10]
-        int[] arrayProgression = new int[lengthProgression + 1];
+        int first = generateNumber(bottomBoundFirstElement, upperBoundFirstElement);
+        final int bottomBoundStep = 3;
+        final int upperBoundStep = 7;
+        int step = generateNumber(bottomBoundStep, upperBoundStep);
+        final int bottomBoundProgressionLength = 7;
+        final int upperBoundProgressionLength = 10;
+        int progressionLength = generateNumber(bottomBoundProgressionLength, upperBoundProgressionLength);
+        String[] progression = makeProgression(first, step, progressionLength);
+        int emptyElementIndex = hiddenMemberIndex(progressionLength);
+        final int lengthData = 2;
+        final int firstElement = 0;
+        final int secondElement = 1;
+        String[] data = new String[lengthData];
+        String answer = progression[emptyElementIndex];
+        data[secondElement] = answer;
+        progression[emptyElementIndex] = "..";
+        String question = String.join(" ", progression);
+        data[firstElement] = question;
+        return data;
+    }
+
+    private static String[] makeProgression(int firstElement, int step, int progressionLength) {
+        String[] arrayProgression = new String[progressionLength + 1];
         for (int i = 0; i < arrayProgression.length; i++) {
-            arrayProgression[i] = firstElement + step * i;
+            arrayProgression[i] = String.valueOf(firstElement + step * i);
         }
         return arrayProgression;
     }
-    public static int getIndexEmptyElement() {
-        Random indexEmptyElemRand = new Random();
-        int divider;
-        final int bottomBoundDivider = 1;
-        final int upperBoundDivider = 5;
-        divider = indexEmptyElemRand.nextInt(upperBoundDivider) + bottomBoundDivider; //[1;5]
-        int indexEmptyElement = lengthProgression / divider;
-        return indexEmptyElement;
+    private static int hiddenMemberIndex(int progressionLength) {
+        final int bottomBoundProgression = 0;
+        final int upperBoundProgression = progressionLength - 1;
+        return generateNumber(bottomBoundProgression, upperBoundProgression);
     }
 }
