@@ -19,7 +19,7 @@ public final class Even {
         final int lengthData = 2;
         final int firstElement = 0;
         final int secondElement = 1;
-        int number = Utils.generateNumber(bottomBound,upperBound);
+        int number = Utils.generateNumber(bottomBound, upperBound);
         String question = String.valueOf(number);
         String answer = number % 2 == 0 ? "yes" : "no";
         String[] data = new String[lengthData];

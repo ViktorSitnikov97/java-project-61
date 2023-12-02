@@ -24,7 +24,7 @@ public final class Prime {
         final int firstElement = 0;
         final int secondElement = 1;
         String[] data = new String[lengthData];
-        int number = Utils.generateNumber(bottomBound,upperBound);
+        int number = Utils.generateNumber(bottomBound, upperBound);
         String question = String.valueOf(number);
         data[firstElement] = question;
         String answer = isPrime(number, arrayPrime) ? "yes" : "no";
