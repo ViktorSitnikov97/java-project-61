@@ -7,10 +7,8 @@ public final class Progression {
 
     public static void startGameProgression() {
         final String rule = "What number is missing in the progression?";
-        final int roundsCount = 3;
-        final int amountData = 2;
-        String[][] roundsData = new String[roundsCount][amountData];
-        for (int i = 0; i < roundsCount; i++) {
+        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundData();
         }
         Engine.general(roundsData, rule);
@@ -27,16 +25,10 @@ public final class Progression {
         int progressionLength = generateNumber(bottomBoundProgressionLength, upperBoundProgressionLength);
         String[] progression = makeProgression(first, step, progressionLength);
         int emptyElementIndex = hiddenMemberIndex(progressionLength);
-        final int lengthData = 2;
-        final int firstElement = 0;
-        final int secondElement = 1;
-        String[] data = new String[lengthData];
         String answer = progression[emptyElementIndex];
-        data[secondElement] = answer;
         progression[emptyElementIndex] = "..";
         String question = String.join(" ", progression);
-        data[firstElement] = question;
-        return data;
+        return new String[]{question, answer};
     }
 
     private static String[] makeProgression(int firstElement, int step, int progressionLength) {

@@ -6,37 +6,28 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.Arrays;
 
 public final class Prime {
+    private static final int MAX = 100;
     public static void startGamePrime() {
         final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         int[] arrayWithPrimeNumbers = getArrayPrime();
-        final int roundsCount = 3;
-        final int amountData = 2;
-        String[][] roundsData = new String[roundsCount][amountData];
-        for (int i = 0; i < roundsCount; i++) {
+        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundData(arrayWithPrimeNumbers);
         }
         Engine.general(roundsData, rule);
     }
     private static String[] generateRoundData(int[] arrayPrime) {
         final int bottomBound = 2;
-        final int upperBound = 100;
-        final int lengthData = 2;
-        final int firstElement = 0;
-        final int secondElement = 1;
-        String[] data = new String[lengthData];
-        int number = Utils.generateNumber(bottomBound, upperBound);
+        int number = Utils.generateNumber(bottomBound, MAX);
         String question = String.valueOf(number);
-        data[firstElement] = question;
         String answer = isPrime(number, arrayPrime) ? "yes" : "no";
-        data[secondElement] = answer;
-        return data;
+        return new String[]{question, answer};
     }
     private static boolean isPrime(int number, int[] array) {
         return ArrayUtils.contains(array, number);
     }
     private static int[] getArrayPrime() {
-        final int lengthArray = 100;
-        int[] array = new int[lengthArray];
+        int[] array = new int[MAX + 1];
         int count = 0;
         for (int i = 2; i < array.length; i++) {
             boolean isPrime = true;

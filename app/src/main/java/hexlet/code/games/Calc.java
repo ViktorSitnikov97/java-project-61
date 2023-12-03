@@ -6,10 +6,8 @@ import static hexlet.code.Utils.generateNumber;
 public final class Calc {
     public static void startGameCalc() {
         final String rule = "What is the result of the expression?";
-        final int roundsCount = 3;
-        final int amountData = 2;
-        String[][] roundsData = new String[roundsCount][amountData];
-        for (int i = 0; i < roundsCount; i++) {
+        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundData();
         }
         Engine.general(roundsData, rule);
@@ -38,15 +36,9 @@ public final class Calc {
             default:
                 throw new RuntimeException("Operation selection error " + choiceOperation);
         }
-        final int lengthData = 2;
-        final int firstElement = 0;
-        final int secondElement = 1;
-        String[] data = new String[lengthData];
         String expression = firstValue + " " + operator + " " + secondValue;
-        data[firstElement] = expression;
         int answer = calculate(operator, firstValue, secondValue);
-        data[secondElement] = String.valueOf(answer);
-        return data;
+        return new String[]{expression, String.valueOf(answer)};
     }
 
     private static int calculate(char operator, int number1, int number2) {
