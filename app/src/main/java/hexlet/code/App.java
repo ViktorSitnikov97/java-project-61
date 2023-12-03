@@ -21,7 +21,6 @@ public class App {
                 + "Your choice: ");
         Scanner scanner = new Scanner(System.in);
         String selectedGame = scanner.next();
-
         switch (selectedGame) {
             case "1":
                 Cli.greet();
@@ -49,7 +48,5 @@ public class App {
                 break;
         }
         scanner.close();
-
     }
-
 }
