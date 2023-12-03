@@ -7,14 +7,14 @@ public final class GCD {
     public static void startGameGreatComDiv() {
         final String rule = "Find the greatest common divisor of given numbers.";
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        final int upperBound = 100;
+        final int bottomBound = 0;
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            roundsData[i] = generateRoundDataGCD();
+            roundsData[i] = generateRoundDataGCD(bottomBound, upperBound);
         }
         Engine.general(roundsData, rule);
     }
-    private static String[] generateRoundDataGCD() {
-        final int upperBound = 100;
-        final int bottomBound = 0;
+    private static String[] generateRoundDataGCD(int bottomBound, int upperBound) {
         int a = generateNumber(bottomBound, upperBound);
         int b = generateNumber(bottomBound, upperBound);
         String expression = a + " " + b;
