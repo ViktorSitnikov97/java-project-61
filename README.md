@@ -6,7 +6,7 @@
 
 
 # Игры c демонстрацией:
-## [Even](https://asciinema.org/a/vf4kHuBfE060JsYrrpnDrugTg)
+## [Even](https://asciinema.org/a/624819)
 Определение четного числа.
 ## [Calc](https://asciinema.org/a/624808)
 Калькулятор. Арифметические выражения, которые необходимо вычислить.
