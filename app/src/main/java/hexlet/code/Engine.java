@@ -12,8 +12,7 @@ public final class Engine {
     public static void general(String[][] roundsData, String gameRule) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\n" + "Welcome to the Brain Games!\n" + "May I have your name? ");
-        String userName;
-        userName = scanner.nextLine();
+        String userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
         System.out.println(gameRule);
         boolean isWrongAnswer = false;
