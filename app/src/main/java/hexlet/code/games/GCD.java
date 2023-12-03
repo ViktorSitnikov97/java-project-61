@@ -8,11 +8,11 @@ public final class GCD {
         final String rule = "Find the greatest common divisor of given numbers.";
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            roundsData[i] = generateRoundData();
+            roundsData[i] = generateRoundDataGCD();
         }
         Engine.general(roundsData, rule);
     }
-    private static String[] generateRoundData() {
+    private static String[] generateRoundDataGCD() {
         final int upperBound = 100;
         final int bottomBound = 0;
         int a = generateNumber(bottomBound, upperBound);

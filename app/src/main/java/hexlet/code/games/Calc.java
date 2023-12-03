@@ -8,12 +8,12 @@ public final class Calc {
         final String rule = "What is the result of the expression?";
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            roundsData[i] = generateRoundData();
+            roundsData[i] = generateRoundDataCalc();
         }
         Engine.general(roundsData, rule);
     }
 
-    public static String[] generateRoundData() {
+    public static String[] generateRoundDataCalc() {
         final int upperBoundValue = 100;
         final int bottomBoundValue = 20;
         final int upperBoundChoiceNumber = 2;

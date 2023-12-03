@@ -12,11 +12,11 @@ public final class Prime {
         int[] arrayWithPrimeNumbers = getArrayPrime();
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            roundsData[i] = generateRoundData(arrayWithPrimeNumbers);
+            roundsData[i] = generateRoundDataPrime(arrayWithPrimeNumbers);
         }
         Engine.general(roundsData, rule);
     }
-    private static String[] generateRoundData(int[] arrayPrime) {
+    private static String[] generateRoundDataPrime(int[] arrayPrime) {
         final int bottomBound = 2;
         int number = Utils.generateNumber(bottomBound, MAX);
         String question = String.valueOf(number);

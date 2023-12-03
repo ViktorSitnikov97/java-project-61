@@ -9,11 +9,11 @@ public final class Progression {
         final String rule = "What number is missing in the progression?";
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            roundsData[i] = generateRoundData();
+            roundsData[i] = generateRoundDataProgression();
         }
         Engine.general(roundsData, rule);
     }
-    private static String[] generateRoundData() {
+    private static String[] generateRoundDataProgression() {
         final int bottomBoundFirstElement = 1;
         final int upperBoundFirstElement = 20;
         int first = generateNumber(bottomBoundFirstElement, upperBoundFirstElement);

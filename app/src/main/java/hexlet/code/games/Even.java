@@ -7,11 +7,11 @@ public final class Even {
         final String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            roundsData[i] = generateRoundData();
+            roundsData[i] = generateRoundDataEven();
         }
         Engine.general(roundsData, rule);
     }
-    public static String[] generateRoundData() {
+    public static String[] generateRoundDataEven() {
         final int bottomBound = 1;
         final int upperBound = 100;
         int number = Utils.generateNumber(bottomBound, upperBound);
