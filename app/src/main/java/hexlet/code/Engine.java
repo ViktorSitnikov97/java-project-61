@@ -3,8 +3,10 @@ package hexlet.code;
 import java.util.Scanner;
 
 public final class Engine {
+    public static final int ROUNDS = 3;
     private static final int INDEX_QUESTION = 0;
     private static final int INDEX_ANSWER = 1;
+
 
     public static void general(String[][] roundsData, String gameRule) {
         Scanner scanner = new Scanner(System.in);
@@ -13,24 +15,23 @@ public final class Engine {
         userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
         System.out.println(gameRule);
-        int count = 0;
-        final int roundsCount = 3;
-        while (count < roundsCount) {
-            System.out.println("Question: " + roundsData[count][INDEX_QUESTION]);
+        boolean isWrongAnswer = false;
+        for (String[] data : roundsData) {
+            System.out.println("Question: " + data[INDEX_QUESTION]);
             System.out.print("Your answer: ");
             String userAnswer;
             userAnswer = scanner.nextLine();
-            if (!roundsData[count][INDEX_ANSWER].equals(userAnswer)) {
+            if (!data[INDEX_ANSWER].equals(userAnswer)) {
                 System.out.println("'" + userAnswer + "'"
                         + " is wrong answer ;(. Correct answer was " + "'"
-                        + roundsData[count][INDEX_ANSWER] + "'.\n"
+                        + data[INDEX_ANSWER] + "'.\n"
                         + "Let's try again, " + userName + "!");
+                isWrongAnswer = true;
                 break;
             }
             System.out.println("Correct!");
-            count++;
         }
-        if (count == roundsCount) {
+        if (!isWrongAnswer) {
             System.out.println("Congratulations, " + userName + "!");
         }
         scanner.close();
