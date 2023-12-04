@@ -7,7 +7,7 @@ public final class Calc {
 
     public static void startGameCalc() {
         final String rule = "What is the result of the expression?";
-        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        String[][] roundsData = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataCalc();
         }

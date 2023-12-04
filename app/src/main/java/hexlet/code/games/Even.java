@@ -6,7 +6,7 @@ public final class Even {
 
     public static void startGameEven() {
         final String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        String[][] roundsData = new String[Engine.ROUNDS][2];
         final int bottomBound = 1;
         final int upperBound = 100;
         for (int i = 0; i < Engine.ROUNDS; i++) {

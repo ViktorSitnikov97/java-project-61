@@ -7,7 +7,7 @@ public final class GCD {
 
     public static void startGameGreatComDiv() {
         final String rule = "Find the greatest common divisor of given numbers.";
-        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        String[][] roundsData = new String[Engine.ROUNDS][2];
         final int upperBound = 100;
         final int bottomBound = 0;
         for (int i = 0; i < Engine.ROUNDS; i++) {

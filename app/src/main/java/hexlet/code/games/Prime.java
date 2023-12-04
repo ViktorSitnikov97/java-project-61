@@ -11,7 +11,7 @@ public final class Prime {
     public static void startGamePrime() {
         final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         int[] arrayWithPrimeNumbers = getArrayPrime();
-        String[][] roundsData = new String[3][2];
+        String[][] roundsData = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataPrime(arrayWithPrimeNumbers);
         }

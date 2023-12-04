@@ -7,7 +7,7 @@ public final class Progression {
 
     public static void startGameProgression() {
         final String rule = "What number is missing in the progression?";
-        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        String[][] roundsData = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataProgression();
         }
