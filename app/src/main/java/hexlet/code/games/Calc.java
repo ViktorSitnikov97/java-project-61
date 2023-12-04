@@ -4,13 +4,14 @@ import hexlet.code.Engine;
 import static hexlet.code.Utils.generateNumber;
 
 public final class Calc {
+
     public static void startGameCalc() {
         final String rule = "What is the result of the expression?";
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataCalc();
         }
-        Engine.general(roundsData, rule);
+        System.out.println(Engine.general(roundsData, rule));
     }
 
     public static String[] generateRoundDataCalc() {

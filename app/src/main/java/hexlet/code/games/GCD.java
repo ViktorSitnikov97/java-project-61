@@ -4,6 +4,7 @@ import hexlet.code.Engine;
 import static hexlet.code.Utils.generateNumber;
 
 public final class GCD {
+
     public static void startGameGreatComDiv() {
         final String rule = "Find the greatest common divisor of given numbers.";
         String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
@@ -12,8 +13,9 @@ public final class GCD {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataGCD(bottomBound, upperBound);
         }
-        Engine.general(roundsData, rule);
+        System.out.println(Engine.general(roundsData, rule));
     }
+
     private static String[] generateRoundDataGCD(int bottomBound, int upperBound) {
         int a = generateNumber(bottomBound, upperBound);
         int b = generateNumber(bottomBound, upperBound);
@@ -21,6 +23,7 @@ public final class GCD {
         int answer = gcd(a, b);
         return new String[]{expression, String.valueOf(answer)};
     }
+
     private static int gcd(int firstNumber, int secondNumber) {
         if (secondNumber == 0) {
             return firstNumber;

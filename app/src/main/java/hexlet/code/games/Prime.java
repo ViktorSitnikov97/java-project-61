@@ -7,15 +7,17 @@ import java.util.Arrays;
 
 public final class Prime {
     private static final int MAX = 100;
+
     public static void startGamePrime() {
         final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         int[] arrayWithPrimeNumbers = getArrayPrime();
-        String[][] roundsData = new String[Engine.ROUNDS][Engine.QUANTITY_DATA];
+        String[][] roundsData = new String[3][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataPrime(arrayWithPrimeNumbers);
         }
-        Engine.general(roundsData, rule);
+        System.out.println(Engine.general(roundsData, rule));
     }
+
     private static String[] generateRoundDataPrime(int[] arrayPrime) {
         final int bottomBound = 2;
         int number = Utils.generateNumber(bottomBound, MAX);
@@ -23,9 +25,11 @@ public final class Prime {
         String answer = isPrime(number, arrayPrime) ? "yes" : "no";
         return new String[]{question, answer};
     }
+
     private static boolean isPrime(int number, int[] array) {
         return ArrayUtils.contains(array, number);
     }
+
     private static int[] getArrayPrime() {
         int[] array = new int[MAX + 1];
         int count = 0;

@@ -11,8 +11,9 @@ public final class Progression {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataProgression();
         }
-        Engine.general(roundsData, rule);
+        System.out.println(Engine.general(roundsData, rule));
     }
+
     private static String[] generateRoundDataProgression() {
         final int bottomBoundFirstElement = 1;
         final int upperBoundFirstElement = 20;
@@ -20,13 +21,11 @@ public final class Progression {
         final int bottomBoundStep = 3;
         final int upperBoundStep = 7;
         int step = generateNumber(bottomBoundStep, upperBoundStep);
-        final int bottomBoundProgressionLength = 7;
-        final int upperBoundProgressionLength = 10;
-        int progressionLength = generateNumber(bottomBoundProgressionLength, upperBoundProgressionLength);
+        final int progressionLength = 8;
         String[] progression = makeProgression(first, step, progressionLength);
-        int emptyElementIndex = hiddenMemberIndex(progressionLength);
-        String answer = progression[emptyElementIndex];
-        progression[emptyElementIndex] = "..";
+        int hiddenMemberIndex = generateNumber(0, progressionLength - 1);
+        String answer = progression[hiddenMemberIndex];
+        progression[hiddenMemberIndex] = "..";
         String question = String.join(" ", progression);
         return new String[]{question, answer};
     }
@@ -37,10 +36,5 @@ public final class Progression {
             arrayProgression[i] = String.valueOf(firstElement + step * i);
         }
         return arrayProgression;
-    }
-    private static int hiddenMemberIndex(int progressionLength) {
-        final int bottomBoundProgression = 0;
-        final int upperBoundProgression = progressionLength - 1;
-        return generateNumber(bottomBoundProgression, upperBoundProgression);
     }
 }
