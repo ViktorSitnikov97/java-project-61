@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public final class Engine {
     public static final int ROUNDS = 3;
-    public static final int QUANTITY_DATA = 2;
     private static final int INDEX_QUESTION = 0;
     private static final int INDEX_ANSWER = 1;
 
