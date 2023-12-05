@@ -8,7 +8,7 @@ public final class Engine {
     private static final int INDEX_QUESTION = 0;
     private static final int INDEX_ANSWER = 1;
 
-    public static String general(String[][] roundsData, String gameRule) {
+    public static void general(String[][] roundsData, String gameRule) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\n" + "Welcome to the Brain Games!\n" + "May I have your name? ");
         String userName = scanner.nextLine();
@@ -20,15 +20,16 @@ public final class Engine {
             String userAnswer = scanner.nextLine();
             if (!data[INDEX_ANSWER].equals(userAnswer)) {
                 scanner.close();
-                return "'" + userAnswer + "'"
+                System.out.println("'" + userAnswer + "'"
                         + " is wrong answer ;(. Correct answer was " + "'"
                         + data[INDEX_ANSWER] + "'.\n"
-                        + "Let's try again, " + userName + "!";
+                        + "Let's try again, " + userName + "!");
+                return;
             }
             System.out.println("Correct!");
         }
+        System.out.println("Congratulations, " + userName + "!");
         scanner.close();
-        return "Congratulations, " + userName + "!";
     }
 }
 
