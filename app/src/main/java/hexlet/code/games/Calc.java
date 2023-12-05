@@ -11,7 +11,7 @@ public final class Calc {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataCalc();
         }
-        System.out.println(Engine.general(roundsData, rule));
+        Engine.general(roundsData, rule);
     }
 
     public static String[] generateRoundDataCalc() {

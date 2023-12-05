@@ -15,7 +15,7 @@ public final class Prime {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataPrime(arrayWithPrimeNumbers);
         }
-        System.out.println(Engine.general(roundsData, rule));
+        Engine.general(roundsData, rule);
     }
 
     private static String[] generateRoundDataPrime(int[] arrayPrime) {

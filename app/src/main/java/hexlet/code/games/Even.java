@@ -13,7 +13,7 @@ public final class Even {
             int number = Utils.generateNumber(bottomBound, upperBound);
             roundsData[i] = generateRoundDataEven(number);
         }
-        System.out.println(Engine.general(roundsData, rule));
+        Engine.general(roundsData, rule);
     }
 
     public static String[] generateRoundDataEven(int number) {

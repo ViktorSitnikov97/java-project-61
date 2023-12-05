@@ -11,7 +11,7 @@ public final class Progression {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataProgression();
         }
-        System.out.println(Engine.general(roundsData, rule));
+        Engine.general(roundsData, rule);
     }
 
     private static String[] generateRoundDataProgression() {

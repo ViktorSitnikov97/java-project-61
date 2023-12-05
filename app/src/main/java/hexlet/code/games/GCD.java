@@ -13,7 +13,7 @@ public final class GCD {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             roundsData[i] = generateRoundDataGCD(bottomBound, upperBound);
         }
-        System.out.println(Engine.general(roundsData, rule));
+        Engine.general(roundsData, rule);
     }
 
     private static String[] generateRoundDataGCD(int bottomBound, int upperBound) {
